@@ -1,0 +1,14 @@
+WebPack
+    Babel
+    Eslint
+    Scss
+    - Dev
+        Eslint, Dev Server, Not Minified JS & CSS
+    - Prod
+        Minified code 
+Git
+    Production
+        1.0.0  ------------
+    Development
+        1.0.0  ------------
+        1.0.1  ------------- |
