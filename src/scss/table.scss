@@ -1,0 +1,82 @@
+@import "mixin.scss";
+@import "variables.scss";
+
+.excel__table{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: $header-height + $toolbar-height + $formula-height;
+    overflow-x: auto;
+    color: #000;
+    padding-bottom: 3px;
+
+    &::-webkit-scrollbar {
+        height: 7px;               /* ширина scrollbar */
+      }
+    &::-webkit-scrollbar-track {
+        background: transparent;        /* цвет дорожки */
+      }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(59, 55, 55);    /* цвет плашки */
+        border-radius: 20px;       /* закругления плашки */
+        height: 7px;
+      }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        height: $row-height;
+        min-height: 20px;
+    }
+
+    .row-info{
+        width: $ceel-formula-width;
+        min-width: $ceel-formula-width;
+        height: 100%;
+        border: 1px solid $border-color;
+        border-left: none;
+        border-top: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+    }
+    .row-data{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .row-column{
+        border: 1px solid $border-color;
+        border-left: none;
+        border-top: none;
+        height: 100%;
+        width: $ceil-width;
+        min-width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+    }
+
+    .ceil{
+        border: 1px solid #e2e3e3;
+        border-left: none;
+        border-top: none;
+        height: 100%;
+        width: $ceil-width;
+        min-width: 40px;
+        display: flex;
+        align-items: center;
+        padding-left: 3px;
+        font-size: 14px;
+        white-space: nowrap;
+        outline: none;
+        &.selected{
+            border: none;
+            outline: 2px solid #3c74ff;
+            z-index: 2;
+        }
+    }
+
+}
