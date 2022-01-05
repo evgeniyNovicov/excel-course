@@ -3,29 +3,29 @@ const CODES = {
     Z: 'Z'.charCodeAt()
 }
 
-function toCel () {
-    return `
-        <div class="ceil" contenteditable></div>
-    `
+function toCel (_, ind) {
+    return `<div class="ceil" contenteditable data-index="${ind}"></div>`
 }
 
 function toChart (_, ind) {
     return String.fromCharCode(CODES.A + ind)
 }
 
-function toColumn(el) {
-    return `<div class="row-column">${el}</div>`
+function toColumn(el, ind) {
+    return `<div class="column" data-type="resizable" data-index="${ind}">
+        ${el}
+        <div class="col-resize" data-resize="col"></div>
+    </div>`
 }
 
 function toRow(content,ind) {
-    // мое решение
-    // let indValue = ''
-    // if(ind > 0) {
-    //     indValue = ind
-    // }
+    let resize = ind ? `<div class="row-resize" data-resize="row"></div>`: ``
     return `
-        <div class="row">
-            <div class="row-info">${ /*${indValue} - мое решение */ ind ? ind : ''}</div>
+        <div class="row" data-type="resizable">
+            <div class="row-info">
+                ${ind ? ind : ''}
+                ${resize}
+            </div>
             <div class="row-data">${content}</div>
         </div>
     `

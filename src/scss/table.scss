@@ -39,14 +39,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #f8f9fa;
+        background-color: #f8f9fa; 
+        position: relative;
     }
     .row-data{
         display: flex;
         justify-content: flex-start;
     }
 
-    .row-column{
+    .column{
         border: 1px solid $border-color;
         border-left: none;
         border-top: none;
@@ -57,7 +58,36 @@
         align-items: center;
         justify-content: center;
         background-color: #f8f9fa;
+        position: relative;
     }
+
+    .col-resize, .row-resize {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: $primary-color;
+        opacity: 0;
+        z-index: 100;
+        &:hover {
+          opacity: 1!important;
+        }
+    }
+
+    .col-resize {
+        top: 0;
+        width: 4px;
+        &:hover {
+          cursor: col-resize;
+        }
+      }
+    
+      .row-resize {
+        left: 0;
+        height: 4px;
+        &:hover {
+          cursor: row-resize;
+        }
+      }
 
     .ceil{
         border: 1px solid #e2e3e3;
@@ -78,5 +108,4 @@
             z-index: 2;
         }
     }
-
 }
