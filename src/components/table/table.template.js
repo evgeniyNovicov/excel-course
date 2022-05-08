@@ -3,11 +3,24 @@ const CODES = {
     Z: 'Z'.charCodeAt()
 }
 
-function toCel (_, ind) {
-    return `<div class="ceil" contenteditable data-index="${ind}"></div>`
+// function toCel (row, ind) {
+//     return `<div class="ceil" contenteditable data-col="${ind}" data-row="${row}"></div>`
+// }
+
+function toCell(row) {
+    return function(_, col) {
+        return `
+        <div
+            class="cell"
+            contenteditable
+            data-col="${col}"
+            data-type="cell"
+            data-id="${row}:${col}"
+        ></div>`
+    }
 }
 
-function toChart (_, ind) {
+function toChart(_, ind) {
     return String.fromCharCode(CODES.A + ind)
 }
 
@@ -18,8 +31,8 @@ function toColumn(el, ind) {
     </div>`
 }
 
-function toRow(content,ind) {
-    let resize = ind ? `<div class="row-resize" data-resize="row"></div>`: ``
+function toRow(content, ind) {
+    let resize = ind ? `<div class="row-resize" data-resize="row"></div>` : ``
     return `
         <div class="row" data-type="resizable">
             <div class="row-info">
@@ -31,8 +44,7 @@ function toRow(content,ind) {
     `
 }
 
-
-export function createTable (rowsCount = 15) {
+export function createTable(rowsCount = 15) {
     const colsCount = CODES.Z - CODES.A + 1
     const rows = []
 
@@ -44,13 +56,14 @@ export function createTable (rowsCount = 15) {
 
     rows.push(toRow(cols))
 
-    const tableCols = new Array(colsCount)
-    .fill('')
-    .map(toCel)
-    .join('')
+    for (let row = 0; row < rowsCount; row++) {
+        const cells = new Array(colsCount)
+            .fill('')
+            // .map((_, col) => toCel(row, col))
+            .map(toCell(row))
+            .join('')
 
-    for (let i = 0; i < rowsCount; i++) {
-        rows.push(toRow(tableCols, i + 1))  
+        rows.push(toRow(cells, row + 1))
     }
 
     return rows.join('')
