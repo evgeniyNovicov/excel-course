@@ -2,14 +2,14 @@ import { ExelComponent } from "../../core/ExcelComponent";
 
 export class Header extends ExelComponent {
     static className = 'excel__header'
-    constructor($root) {
+    constructor($root, options) {
         super($root, {
-
-            
+            name: 'Header',
+            ...options
         })
     }
     toHtml() {
-        return  `<input type="text" class="input" value="Новая таблица">
+        return `<input type="text" class="input" value="Новая таблица">
         <div>
             <div class="button">
                 <i class="material-icons"> delete_outline</i>
