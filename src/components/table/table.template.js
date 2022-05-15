@@ -44,7 +44,7 @@ function toRow(content, ind) {
     `
 }
 
-export function createTable(rowsCount = 15) {
+export function createTable(rowsCount = 25) {
     const colsCount = CODES.Z - CODES.A + 1
     const rows = []
 
