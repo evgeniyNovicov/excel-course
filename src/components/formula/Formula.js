@@ -14,6 +14,7 @@ export class Formula extends ExelComponent {
 
     toHtml() {
         return `<div class="formula">fx</div>
+        <div id="formula" class="input" contenteditable spellcheck="false"></div>
         <div id="formula" class="input" contenteditable spellcheck="false"></div>`
     }
 
