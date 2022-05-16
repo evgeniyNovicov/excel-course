@@ -26,9 +26,6 @@ export class Toolbar extends ExelComponent {
         </div>
         <div class="button">
             <i class="material-icons">format_underlined</i>
-        </div>
-        <div class="button">
-            <i class="material-icons">format_underlined</i>
         </div>`
     }
 }
