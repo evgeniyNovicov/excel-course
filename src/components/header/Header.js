@@ -17,14 +17,6 @@ export class Header extends ExelComponent {
             <div class="button">
                 <i class="material-icons"> login</i>
             </div>
-        </div>
-        <div>
-            <div class="button">
-                <i class="material-icons"> delete_outline</i>
-            </div>
-            <div class="button">
-                <i class="material-icons"> login</i>
-            </div>
         </div>`
     }
 
