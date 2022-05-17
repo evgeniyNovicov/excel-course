@@ -40,7 +40,6 @@ function toRow(content, ind) {
                 ${resize}
             </div>
             <div class="row-data">${content}</div>
-            <div class="row-data">${content}</div>
         </div>
     `
 }
