@@ -28,7 +28,6 @@ function toColumn(el, ind) {
     return `<div class="column" data-type="resizable" data-index="${ind}">
         ${el}
         <div class="col-resize" data-resize="col"></div>
-        <div class="col-resize" data-resize="col"></div>
     </div>`
 }
 
